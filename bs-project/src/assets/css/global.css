@@ -3,12 +3,19 @@
     margin: 0;
     padding: 0;
 }
+a{
+    text-decoration:none;
+}
 html,body,#app{
     height: 100%;
     /* min-width: 1050px; */
 }
 #app{
+    height: 100%;
     text-align: start;
+}
+.el-main{
+    padding: 0;
 }
 
 
