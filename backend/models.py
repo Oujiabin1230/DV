@@ -1,17 +1,13 @@
-from django.db import models
+from backend.lib.lib_mysql import select
 
 
 # Create your models here.
 
 
-class Book():
-    def name(self):
-        bookName = "myshell"
-        createTime = "2022"
-        return {"book": bookName, "createTime": createTime}
+class Bar:
+    def __init__(self):
+        pass
 
-    def __unicode__(self):
-        return self.bookName
-
-    def __str__(self):
-        return self.bookName
+    def new_cases(self,):
+        data = select(cmd="统计每个国家新增数", time_interval=["2020-02-24", "2020-02-25"])
+        return data

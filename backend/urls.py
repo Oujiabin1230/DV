@@ -10,10 +10,10 @@
 """
 from django.conf.urls import url
 
-from backend.views import show_books
+from backend.views import get_bar
 
 urlpatterns = [
 
-    url("show_books", show_books )
+    url("get_bar", get_bar )
 ]
 

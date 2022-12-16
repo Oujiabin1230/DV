@@ -1,26 +1,19 @@
-from django.shortcuts import render
-
 # Create your views here.
-import json
 
-from django.core import serializers
 from django.http import JsonResponse
-from django.shortcuts import render
 from django.views.decorators.http import require_http_methods
 
-from backend.models import Book
+from backend.models import Bar
 
 
 @require_http_methods(["GET"])
-def show_books(request):
+def get_bar(request):
     response = {}
     try:
-        books = [0,1,2,3,4,5]
-        response['list'] = books
-        response['respMsg'] = 'success'
-        response['respCode'] = '000000'
-        response['flag']=1
+        response['data'] = Bar().new_cases()
+        response['respMsg'] = 'request ok'
+        response['respCode'] = 'succeed'
     except Exception as e:
         response['respMsg'] = str(e)
-        response['respCode'] = '999999'
+        response['respCode'] = 'failed'
     return JsonResponse(response)

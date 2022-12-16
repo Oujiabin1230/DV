@@ -1,0 +1,6 @@
+{
+  "统计每个国家新增数": {
+    "sql": "select date,iso_code,sum(new_cases) as total_new_cases from xg.source where date between '{time_interval_start}' and '{time_interval_end}' group by iso_code,date;",
+    "fields": ["date","iso_code","total_new_cases"]
+  }
+}

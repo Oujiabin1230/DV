@@ -2,7 +2,7 @@
    <el-container>
       <el-header>
          <div class="title-div">
-            <h3>标题</h3>
+            <h3>广东工业大学大数据综合设计-新冠疫情</h3>
          </div>
          <div class="nav-div">
             <el-menu
