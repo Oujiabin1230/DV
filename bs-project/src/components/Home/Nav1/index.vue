@@ -7,7 +7,7 @@
             active-text-color="#3091ff"
          >
             <el-menu-item index="1">
-               <router-link to="/nav1/subnav1">subnav1</router-link>
+               <router-link to="/nav1/subnav1">各国新增死亡人数</router-link>
             </el-menu-item>
             <el-menu-item index="2">
                <router-link to="/nav1/subnav2">subnav2</router-link>

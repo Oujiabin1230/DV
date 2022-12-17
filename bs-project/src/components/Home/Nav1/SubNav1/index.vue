@@ -2,29 +2,41 @@
    <div>
       <div id="nav1chart1" style="width: 600px; height: 400px">chart</div>
       <div>
-         <p>细项1---文本内容</p>
+         <p>{{this.sql_introduce}}</p>
       </div>
    </div>
 </template>
 
 <script>
 import * as echarts from "echarts";
-import {getSubNab1Data} from '../require.js'
-
+import {getSubNabData} from '../require.js'
+import Vue from 'vue'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
 export default {
    data () {
     return {
-      msg: ''
+      start_date:'2020-02-10',
+      end_date:'2020-02-10',
+      total_new_cases:[],
+      iso_code:[],
+      sql_name:"",
+      sql_introduce:""
     }
    },
-
    mounted() {
-      // 基于准备好的dom，初始化echarts实例
       var myChart = echarts.init(document.getElementById("nav1chart1"));
-
-      // 使用刚指定的配置项和数据显示图表。
-      myChart.setOption(getSubNab1Data(["项1","3"]));
+      var s=`http://127.0.0.1:8000/api/get_bar/?start_date=${this.start_date}&end_date=${this.end_date}`
+      axios.get(s).then((response)=>{
+         this.total_new_cases=response.data.respdata.total_new_cases
+         this.iso_code=response.data.respdata.iso_code
+         this.sql_name=response.data.respdata.sql_name
+         this.sql_introduce=response.data.respdata.sql_introduce
+         myChart.setOption(getSubNabData(this.sql_name,this.iso_code.__v_raw,this.total_new_cases.__v_raw));
+      }).catch((err) => {
+        reject(err)
+      })
    },
 };
 </script>

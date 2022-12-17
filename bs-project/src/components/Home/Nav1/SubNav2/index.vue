@@ -9,7 +9,7 @@
 
 <script>
 import * as echarts from "echarts";
-import {getSubNab2Data} from '../require.js'
+import {getSubNabData} from '../require.js'
 
 export default {
    mounted() {
@@ -17,7 +17,7 @@ export default {
       var myChart = echarts.init(document.getElementById("nav1chart2"));
 
       // 使用刚指定的配置项和数据显示图表。
-      myChart.setOption(getSubNab2Data());
+       myChart.setOption(getSubNabData(["项1","3"]));
    },
 };
 </script>
