@@ -17,7 +17,7 @@ def build_conn():
     return db
 
 
-with open(f"{dir_path}/sql.json", "r") as f:
+with open(f"{dir_path}/sql.json", "r",encoding='utf-8') as f:
     sql_json = json.loads(f.read())
 
 

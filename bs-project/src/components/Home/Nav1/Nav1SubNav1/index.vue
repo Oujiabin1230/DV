@@ -51,9 +51,13 @@ export default {
    },
    methods: {
       search(myChart) {
-         const { option, introduce } = getSubNavData(this.searchDate, this.searchCount);
-         this.introduce = introduce;
-         myChart.setOption(option);
+         getSubNavData(
+            this.searchDate,
+            this.searchCount
+         ).then((res)=>{
+            this.introduce = res.introduce;
+            this.myChart.setOption(res.option);
+         });
       },
    },
 
