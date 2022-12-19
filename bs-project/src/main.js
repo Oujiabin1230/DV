@@ -4,6 +4,9 @@ import router from './router'
 import 'default-passive-events'
 
 import './assets/css/global.css'
-const app = createApp(App)
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 
-app.use(router).mount('#app')
+createApp(App).use(router,VueAxios,axios).mount('#app')
+
+

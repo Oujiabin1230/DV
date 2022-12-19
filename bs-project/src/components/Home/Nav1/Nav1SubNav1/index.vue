@@ -1,6 +1,11 @@
 <template>
    <div class="form-div">
-      <el-input-number v-model="searchCount" :min="5" :max="15" placeholder="排行数" />
+      <el-input-number
+         v-model="searchCount"
+         :min="5"
+         :max="15"
+         placeholder="排行数"
+      />
 
       <el-date-picker
          v-model="searchDate"
@@ -8,16 +13,20 @@
          range-separator="至"
          start-placeholder="开始日期"
          end-placeholder="结束日期"
-         value-format="yyyy-MM-DD"
+         value-format="YYYY-MM-DD"
       >
       </el-date-picker>
-      <el-button type="primary" @click="search()">查询</el-button>
+      <el-button
+         type="primary"
+         @click="this.search(this.myChart, this.searchDate, this.searchCount)"
+         >查询</el-button
+      >
    </div>
    <br />
    <div class="chart-div">
       <div id="nav1chart1" style="width: 1000px; height: 600px">chart</div>
       <div>
-         <p>细项1---文本内容</p>
+         <p>{{ this.introduce }}</p>
       </div>
    </div>
 </template>
@@ -28,26 +37,29 @@ import { getSubNavData } from "../require.js";
 
 export default {
    data() {
-      let searchDate = ''
-      let searchCount= null
+      let searchDate = ["2022-12-01", "2023-01-11"];
+      let searchCount = 10;
+      let introduce = "null";
+      let myChart = null;
 
-      function search(){
-         console.log(this.searchDate,this.searchCountry)
-      }
       return {
          searchDate,
          searchCount,
-
-         search,
+         introduce,
+         myChart,
       };
+   },
+   methods: {
+      search(myChart) {
+         const { option, introduce } = getSubNavData(this.searchDate, this.searchCount);
+         this.introduce = introduce;
+         myChart.setOption(option);
+      },
    },
 
    mounted() {
-      // 基于准备好的dom，初始化echarts实例
-      var myChart = echarts.init(document.getElementById("nav1chart1"));
-
-      // 使用刚指定的配置项和数据显示图表。
-      myChart.setOption(getSubNavData()[0]);
+      this.myChart = echarts.init(document.getElementById("nav1chart1"));
+      this.search(this.myChart, this.searchDate, this.searchCount);
    },
 };
 </script>
@@ -65,7 +77,7 @@ export default {
 
       margin: 0 20px 0 15px;
    }
-   button{
+   button {
       margin: 0 0 0 20px;
    }
 }

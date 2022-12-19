@@ -16,13 +16,13 @@
                   <router-link to="/welcome">首页</router-link>
                </el-menu-item>
                <el-menu-item index="2">
-                  <router-link to="/nav1/subnav1">导航1</router-link>
+                  <router-link to="/nav1/subnav1">柱状图</router-link>
                </el-menu-item>
                <el-menu-item index="3">
                   <router-link to="/nav2/subnav1">导航2</router-link>
                </el-menu-item>
                <el-menu-item index="4">
-                  <router-link to="/nav3">导航3</router-link>
+                  <router-link to="/nav3">线形图</router-link>
                </el-menu-item>
             </el-menu>
          </div>

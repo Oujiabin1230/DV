@@ -9,21 +9,22 @@
 
 <script>
 import * as echarts from "echarts";
-import {getSubNavData} from '../require.js'
+import { getSubNavData } from "../require.js";
 
 export default {
    mounted() {
       // 基于准备好的dom，初始化echarts实例
       var myChart = echarts.init(document.getElementById("nav1chart2"));
 
-      // 使用刚指定的配置项和数据显示图表。
-      myChart.setOption(getSubNavData()[1]);
+      const { option, introduce } = getSubNavData();
+
+      myChart.setOption(option);
    },
 };
 </script>
 
 <style lang="less" scoped>
-   #nav1chart2{
-      margin: 0 auto;
-   }
+#nav1chart2 {
+   margin: 0 auto;
+}
 </style>

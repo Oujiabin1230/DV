@@ -8,6 +8,6 @@ class Bar:
     def __init__(self):
         pass
 
-    def new_cases(self,):
-        data = select(cmd="统计每个国家新增数", time_interval=["2020-02-24", "2020-02-25"])
+    def new_cases(self,date_list):
+        data = select(cmd="统计每个国家新增数", time_interval=date_list)
         return data
