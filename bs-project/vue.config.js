@@ -7,9 +7,9 @@ module.exports = defineConfig({
 
   configureWebpack: {
     plugins: [
-      require('unplugin-element-plus/webpack')({resolvers: [ElementPlusResolver()],}),
+      // require('unplugin-element-plus/webpack')({resolvers: [ElementPlusResolver()],}),
       require('unplugin-vue-components/webpack')({ resolvers: [ElementPlusResolver()], }),
-      require('unplugin-auto-import/webpack')({ resolvers: [ElementPlusResolver()], }),
+      // require('unplugin-auto-import/webpack')({ resolvers: [ElementPlusResolver()], }),
     ],
   },
 

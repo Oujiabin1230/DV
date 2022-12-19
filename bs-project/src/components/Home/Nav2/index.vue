@@ -1,59 +1,69 @@
 <template>
-   <div>
-      <h2>Nav2</h2>
-      <div id="chart2" style="width: 600px; height: 400px">chart</div>
-
-      <div>
-         <p>文本内容</p>
-      </div>
-   </div>
+   <el-container class="nav-div">
+      <el-aside width="200px">
+         <el-menu
+            :default-active="this.activeIndex"
+            background-color="rgb(236,245,255)"
+            active-text-color="#3091ff"
+         >
+            <el-menu-item index="1">
+               <router-link to="/nav2/subnav1">漏斗图test</router-link>
+            </el-menu-item>
+         </el-menu>
+      </el-aside>
+      <el-main>
+         <h2>Nav2</h2>
+         <router-view></router-view>
+      </el-main>
+   </el-container>
 </template>
 
 <script>
 import * as echarts from "echarts";
 
 export default {
-   mounted() {
-      // 基于准备好的dom，初始化echarts实例
-      var myChart = echarts.init(document.getElementById("chart2"));
+   setup() {
+      let activeIndex = "1";
 
-      // 指定图表的配置项和数据
-      var option = {
-         series: [
-            {
-               type: "pie",
-               data: [
-                  {
-                     value: 100,
-                     name: "A",
-                  },
-                  {
-                     value: 200,
-                     name: "B",
-                  },
-                  {
-                     value: 300,
-                     name: "C",
-                  },
-                  {
-                     value: 400,
-                     name: "D",
-                  },
-                  {
-                     value: 500,
-                     name: "E",
-                  },
-               ],
-               roseType: "area",
-            },
-         ],
+      return {
+         activeIndex,
       };
-
-      // 使用刚指定的配置项和数据显示图表。
-      myChart.setOption(option);
    },
 };
 </script>
 
-<style>
+
+<style lang="less" scoped>
+.el-container {
+   width: 100%;
+   height: 100%;
+   .el-aside {
+      width: 123px;
+      height: 100%;
+      .el-menu {
+         height: 100%;
+         .el-menu-item {
+            border-bottom: solid 1px #aaa;
+            padding: 0 5px;
+            a {
+               display: block;
+               width: 100%;
+               height: 100%;
+
+               color: #000;
+               word-break: normal;
+            }
+         }
+         .el-menu-item.is-active {
+            background-color: rgb(198, 226, 255);
+            a {
+               color: #3091ff;
+            }
+         }
+      }
+   }
+   .el-main {
+      padding: 10px;
+   }
+}
 </style>

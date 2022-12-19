@@ -4,6 +4,6 @@ import router from './router'
 import 'default-passive-events'
 
 import './assets/css/global.css'
+const app = createApp(App)
 
-
-createApp(App).use(router).mount('#app')
+app.use(router).mount('#app')
