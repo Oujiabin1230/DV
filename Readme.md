@@ -1,6 +1,7 @@
 前端
 cd bs-project
 npm install
+npm install vue-axios
 npm run serve -- --port 12346
 
 
