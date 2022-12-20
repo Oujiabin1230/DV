@@ -1,5 +1,6 @@
-export function getSubNavData() {
+export async function getSubNavData() {
    // 此处为示例数据
+   var introduce = 'test introduce'
    var option = {
       title: {
          text: 'Funnel'
@@ -63,5 +64,5 @@ export function getSubNavData() {
       ]
    };
 
-   return option
+   return {option,introduce}
 }

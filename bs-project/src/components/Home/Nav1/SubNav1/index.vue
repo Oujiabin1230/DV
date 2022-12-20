@@ -1,12 +1,5 @@
 <template>
    <div class="form-div">
-      <el-input-number
-         v-model="searchCount"
-         :min="5"
-         :max="15"
-         placeholder="排行数"
-      />
-
       <el-date-picker
          v-model="searchDate"
          type="daterange"
@@ -18,13 +11,13 @@
       </el-date-picker>
       <el-button
          type="primary"
-         @click="this.search(this.myChart, this.searchDate, this.searchCount)"
+         @click="this.search(this.myChart)"
          >查询</el-button
       >
    </div>
    <br />
    <div class="chart-div">
-      <div id="nav1chart1" style="width: 1000px; height: 600px">chart</div>
+      <div id="nav1chart1" class="chart" style="width: 1000px; height: 600px">chart</div>
       <div>
          <p>{{ this.introduce }}</p>
       </div>
@@ -37,53 +30,53 @@ import { getSubNavData } from "../require.js";
 
 export default {
    data() {
+<<<<<<< HEAD:bs-project/src/components/Home/Nav1/Nav1SubNav1/index.vue
       let searchDate = ["2020-12-25", "2021-01-01"];
       let searchCount = 10;
+=======
+      let searchDate = ["2022-12-01", "2023-01-11"];
+>>>>>>> origin/frontend:bs-project/src/components/Home/Nav1/SubNav1/index.vue
       let introduce = "null";
       let myChart = null;
 
       return {
          searchDate,
-         searchCount,
          introduce,
          myChart,
       };
    },
    methods: {
       search(myChart) {
-         const { option, introduce } = getSubNavData(this.searchDate, this.searchCount);
-         this.introduce = introduce;
-         myChart.setOption(option);
+         getSubNavData(
+            this.searchDate,
+         ).then((res)=>{
+            this.introduce = res.introduce;
+            this.myChart.setOption(res.option);
+         });
       },
    },
 
    mounted() {
       this.myChart = echarts.init(document.getElementById("nav1chart1"));
-      this.search(this.myChart, this.searchDate, this.searchCount);
+      this.search(this.myChart);
    },
 };
 </script>
 
 <style lang="less" scoped>
 .form-div {
-   width: 600px;
+   width: 500px;
    height: 80px;
+   padding:0 0 0 20px;
 
    display: flex;
    justify-content: space-between;
    align-items: center;
-   .el-input-number {
-      width: 200px;
-
-      margin: 0 20px 0 15px;
-   }
    button {
       margin: 0 0 0 20px;
    }
 }
-.chart-div {
-   #nav1chart1 {
-      margin: 0 auto;
-   }
+.chart {
+   margin: 0 auto;
 }
 </style>
