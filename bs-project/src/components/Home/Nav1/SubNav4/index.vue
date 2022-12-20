@@ -1,5 +1,6 @@
 <template>
    <div class="form-div">
+      <el-input-number v-model="searchCount" :min="5" :max="15"/>
       <el-date-picker
          v-model="searchDate"
          type="daterange"
@@ -26,24 +27,27 @@
 
 <script>
 import * as echarts from "echarts";
-import { getSubNavTestData } from "../require.js";
+import { getSubNavData } from "../require.js";
 
 export default {
    data() {
       let searchDate = ["2022-12-01", "2023-01-11"];
       let introduce = "null";
+      let searchCount=8
       let myChart = null;
 
       return {
          searchDate,
          introduce,
          myChart,
+         searchCount,
       };
    },
    methods: {
       search(myChart) {
-         getSubNavTestData(
+         getSubNavData(
             this.searchDate,
+            this.searchCount
          ).then((res)=>{
             this.introduce = res.introduce;
             this.myChart.setOption(res.option);
@@ -67,6 +71,9 @@ export default {
    display: flex;
    justify-content: space-between;
    align-items: center;
+   .el-input-number{
+      margin: 0 10px 0 0;
+   }
    button {
       margin: 0 0 0 20px;
    }
