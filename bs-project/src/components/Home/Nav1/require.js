@@ -13,7 +13,7 @@ export async function Nav1_SubNav1_Data(searchDate,searchCount) {
    if (status !== 200) {
       ElMessage.error(statusText)
     }
-   console.log(res.respdata)
+   console.log(res)
    let title = res.respdata.sql_name
    let response_name = res.respdata.国家
    let response_num = res.respdata.确诊人数
