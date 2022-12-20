@@ -1,27 +1,23 @@
+import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
 
 export function getSubNavData(searchDate,searchCount) {
+   var response_num, response_name, title, introduce = null
+   var s = `http://127.0.0.1:8000/api/get_bar/?start_date=${searchDate[0]}&end_date=${searchDate[1]}`
+   console.log(s)
+   axios.get(s).then((response) => {
+        title = response.data.respdata.sql_name
+        response_name = response.data.respdata.国家
+        response_num = response.data.respdata.确诊人数
+        introduce = response.data.respdata.sql_introduce
+    })
 
-   let response_num, response_name, title, introduce = ''
+        console.log(response_num)
+        console.log(response_name)
 
-   // var s = `http://127.0.0.1:8000/api/get_bar/?start_date=${this.start_date}&end_date=${this.end_date}`
-   // axios.get(s).then((response) => {
-   //    sql_name = response.data.respdata.sql_name
-   //    response_name = response.data.respdata.iso_code.__v_raw
-   //    response_num = response.data.respdata.total_new_cases.__v_raw
-   //    sql_introduce = response.data.respdata.sql_introduce
-   // }).catch((err) => {
-   //    console.log(err)
-   //    reject(err)
-   // })
-
-
-   title = 'test-title'
-   response_name = ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
-   response_num = [5, 20, 36, 10, 10, 20]
-   introduce = `文本示例,${searchDate},${searchCount}`
+  // title = 'test-title'
 
    // 此处为示例数据
    var option = {

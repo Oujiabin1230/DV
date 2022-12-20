@@ -1,7 +1,41 @@
 {
-  "统计每个国家新增数": {
-    "sql": "select date,iso_code,sum(new_cases) as total_new_cases from xg.source where date between '{time_interval_start}' and '{time_interval_end}' group by iso_code,date limit 10;",
-    "fields": ["date","iso_code","total_new_cases"],
-    "sql_introduce": "这是用于显示死亡人数前十的数据"
+"统计每个国家新增数": {
+    "sql": "select distinct location as '国家', max(total_cases) over(partition by location) as '确诊人数'from xg.source where iso_code not like '%\\_%' and date between '{time_interval_start}' and '{time_interval_end}' order by 确诊人数 desc limit 10;",
+    "fields": [
+      "国家",
+      "确诊人数"
+    ],
+    "sql_introduce": "-- 某段时间确诊人数最多的国家"
+  },
+
+  "每个洲不同时段的确诊占比": {
+    "sql": "select continent,sum(total_cases_country) as total_cases_continent from(select continent,iso_code,max(total_cases)as total_cases_country from xg.source where date between '{time_interval_start}' and '{time_interval_end}' and continent!=\"\" group by continent,iso_code) t1 group by continent;",
+    "fields": [
+      "continent",
+      "total_cases_continent"
+    ],
+    "sql_introduce": "这是用于显示每个洲不同时段的确诊占比"
+  },
+  "bili": {
+    "sql": "select people_fully_vaccinated/population as '完全接种的占比', new_cases as '新增' from xg.source where location='Albania'and date between '2021-09-06' and '2021-09-13' ;",
+    "fields": [
+      "完全接种的占比",
+      "新增"
+    ],
+    "sql_introduce": "某一段时间，接受初始疫苗接种方案规定的所有剂量总人数占总人口比例和新增确诊占总人口数比例之间的关系"
+  },
+  "b2": {
+    "sql": "select distinct iso_code  as '国家', sum(round(new_cases))over(partition by iso_code)/population as '一段时间确诊占总人口比例',sum(round(new_cases))over(partition by iso_code)/max(total_cases) over(partition by iso_code)as '一段时间确诊占总确诊比例'from xg.source where date between '2020-05-04' and '2020-05-14'  order by 一段时间确诊占总人口比例 desc limit 10;",
+    "fields": [],
+    "sql_introduce": "-- 某一段时间，某些国家新增确诊病例占总人口的比例和确诊与总确诊占比相比较\n"
+  },
+
+  "接种疫苗数占人口比例": {
+    "sql": "select distinct location as '国家', max(people_vaccinated/population) as '接种比例' from xg.source where iso_code not like '%\\_%' and date between '2020-05-04' and '2020-05-14' group by location order by 接种比例 asc limit 10;",
+    "fields": [
+      "国家",
+      "确诊人数"
+    ],
+    "sql_introduce": " -- 接种疫苗数占人口比例最低的前10个国家"
   }
 }

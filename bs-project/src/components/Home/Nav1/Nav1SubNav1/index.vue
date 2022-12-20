@@ -37,7 +37,7 @@ import { getSubNavData } from "../require.js";
 
 export default {
    data() {
-      let searchDate = ["2022-12-01", "2023-01-11"];
+      let searchDate = ["2020-12-25", "2021-01-01"];
       let searchCount = 10;
       let introduce = "null";
       let myChart = null;

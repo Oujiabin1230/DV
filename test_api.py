@@ -9,6 +9,9 @@ print("反序列化之后的数据:", person2)
 
 import requests
 
-res = requests.get("http://127.0.0.1:8000/api/get_bar/?start_date=2022-02-10&end_date=2022-02-11")
+res = requests.get("http://127.0.0.1:8000/api/get_bar/?start_date=2020-02-10&end_date=2020-02-10")
+print(res.json())
+
+res = requests.get("http://127.0.0.1:8000/api/get_bar/?start_date=2020-02-10&end_date=2020-02-10")
 print(res.json())
 
