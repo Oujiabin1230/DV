@@ -17,7 +17,7 @@ import Nav3SubNav1 from '../components/Home/Nav3/SubNav1'
 import Nav3SubNav2 from '../components/Home/Nav3/SubNav2'
 import Nav3SubNav3 from '../components/Home/Nav3/SubNav3'
 import Nav3SubNav4 from '../components/Home/Nav3/SubNav4'
-import Nav4 from '../components/Home/Nav3'
+import Nav4 from '../components/Home/Nav4'
 import Nav4SubNav1 from '../components/Home/Nav4/SubNav1'
 import Nav4SubNav2 from '../components/Home/Nav4/SubNav2'
 import Nav4SubNav3 from '../components/Home/Nav4/SubNav3'
@@ -69,7 +69,7 @@ const routes = [
     ]
   },
   {
-    path: "/nav4", component: Nav3,
+    path: "/nav4", component: Nav4,
     children: [
       { path: "/", redirect: '/subnav1' },
       { path: 'subnav1', component: Nav4SubNav1 },
@@ -79,7 +79,7 @@ const routes = [
     ]
   },
   {
-    path: "/nav5", component: Nav3,
+    path: "/nav5", component: Nav5,
     children: [
       { path: "/", redirect: '/subnav1' },
       { path: 'subnav1', component: Nav5SubNav1 },
@@ -89,7 +89,7 @@ const routes = [
     ]
   },
   {
-    path: "/nav6", component: Nav3,
+    path: "/nav6", component: Nav6,
     children: [
       { path: "/", redirect: '/subnav1' },
       { path: 'subnav1', component: Nav6SubNav1 },

@@ -1,5 +1,5 @@
-export async function getSubNavData() {
-  var introduce = 'test introduce'
+export async function getSubNavData(searchDate,searchCountry) {
+  var introduce = `test introduce  ${searchDate}  ${searchCountry}`
   var option = {
     tooltip: {
       trigger: 'item',

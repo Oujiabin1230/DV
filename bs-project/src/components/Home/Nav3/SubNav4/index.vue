@@ -1,5 +1,13 @@
 <template>
    <div class="form-div">
+      <el-select v-model="this.searchCountry" class="m-2" placeholder="Select" size="large">
+         <el-option
+            v-for="item in this.CountryList"
+            :key="item"
+            :label="item"
+            :value="item"
+         />
+      </el-select>
       <el-date-picker
          v-model="searchDate"
          type="daterange"
@@ -33,17 +41,22 @@ export default {
       let searchDate = ["2022-12-01", "2023-01-11"];
       let introduce = "null";
       let myChart = null;
+      let searchCountry='aaa'
+      let CountryList=['aaa','bbb']
 
       return {
          searchDate,
          introduce,
          myChart,
+         searchCountry,
+         CountryList
       };
    },
    methods: {
       search(myChart) {
          getSubNavData(
             this.searchDate,
+            this.searchCountry
          ).then((res)=>{
             this.introduce = res.introduce;
             this.myChart.setOption(res.option);
@@ -67,6 +80,9 @@ export default {
    display: flex;
    justify-content: space-between;
    align-items: center;
+   .el-select{
+      margin:0 10px 0 0
+   }
    button {
       margin: 0 0 0 20px;
    }

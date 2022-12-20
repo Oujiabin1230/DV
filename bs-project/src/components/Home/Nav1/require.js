@@ -50,7 +50,7 @@ export async function getSubNavData(searchDate) {
 
 
 export async function getSubNavTestData(searchDate) {
-   var introduce ='test introduce'
+   var introduce =`test introduce  ${searchDate}`
    var option = {
       title: {
         text: 'ECharts 入门示例'

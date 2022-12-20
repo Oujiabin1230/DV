@@ -1,6 +1,6 @@
-export async function getSubNavData() {
+export async function getSubNavData(searchDate) {
    // 此处为示例数据
-   var introduce = 'test introduce'
+   var introduce =`test introduce  ${searchDate}`
    var option = {
       title: {
          text: 'Funnel'
