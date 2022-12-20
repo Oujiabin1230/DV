@@ -1,6 +1,10 @@
-export async function getSubNavData(){
-   var introduce = 'test introduce'
-   var option = {
+export async function getSubNavData() {
+  var introduce = 'test introduce'
+  var option = {
+    tooltip: {
+      trigger: 'item',
+      formatter: '{a} <br/>{b} : {c} ({d}%)'
+    },
     series: [
       {
         type: 'pie',
@@ -28,8 +32,15 @@ export async function getSubNavData(){
         ],
         roseType: 'area'
       }
-    ]
-   };
+    ],
+    emphasis: {
+      itemStyle: {
+        shadowBlur: 10,
+        shadowOffsetX: 0,
+        shadowColor: 'rgba(0, 0, 0, 0.5)'
+      }
+    }
+  };
 
-   return {option,introduce}
+  return { option, introduce }
 }
