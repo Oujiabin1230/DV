@@ -7,7 +7,16 @@
             active-text-color="#3091ff"
          >
             <el-menu-item index="1">
-               <router-link to="/nav2/subnav1">漏斗图test</router-link>
+               <router-link to="/nav2/subnav1">漏斗图test1</router-link>
+            </el-menu-item>
+            <el-menu-item index="2">
+               <router-link to="/nav2/subnav2">漏斗图test2</router-link>
+            </el-menu-item>
+            <el-menu-item index="3">
+               <router-link to="/nav2/subnav3">漏斗图test3</router-link>
+            </el-menu-item>
+            <el-menu-item index="4">
+               <router-link to="/nav2/subnav4">漏斗图test4</router-link>
             </el-menu-item>
          </el-menu>
       </el-aside>
@@ -19,8 +28,6 @@
 </template>
 
 <script>
-import * as echarts from "echarts";
-
 export default {
    setup() {
       let activeIndex = "1";

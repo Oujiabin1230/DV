@@ -1,46 +1,75 @@
 <template>
-   <div>
-      <h2>Nav3</h2>
-      <div id="chart3" style="width: 600px; height: 400px">chart</div>
-
-      <div>
-         <p>文本内容</p>
-      </div>
-   </div>
+   <el-container class="nav-div">
+      <el-aside width="200px">
+         <el-menu
+            :default-active="this.activeIndex"
+            background-color="rgb(236,245,255)"
+            active-text-color="#3091ff"
+         >
+            <el-menu-item index="1">
+               <router-link to="/nav3/subnav1">折线图test1</router-link>
+            </el-menu-item>
+            <el-menu-item index="2">
+               <router-link to="/nav3/subnav2">折线图test2</router-link>
+            </el-menu-item>
+            <el-menu-item index="3">
+               <router-link to="/nav3/subnav3">折线图test3</router-link>
+            </el-menu-item>
+            <el-menu-item index="4">
+               <router-link to="/nav3/subnav4">折线图test4</router-link>
+            </el-menu-item>
+         </el-menu>
+      </el-aside>
+      <el-main>
+         <h2>Nav3</h2>
+         <router-view></router-view>
+      </el-main>
+   </el-container>
 </template>
 
 <script>
-import * as echarts from "echarts";
-
 export default {
-   mounted() {
-      // 基于准备好的dom，初始化echarts实例
-      var myChart = echarts.init(document.getElementById("chart3"));
+   setup() {
+      let activeIndex = "1";
 
-      // 指定图表的配置项和数据
-      var option = {
-         xAxis: {
-            data: ["A", "B", "C", "D", "E"],
-         },
-         yAxis: {},
-         series: [
-            {
-               data: [10, 22, 28, 43, 49],
-               type: "line",
-               stack: "x",
-            },
-            {
-               data: [5, 4, 3, 5, 10],
-               type: "line",
-               stack: "x",
-            },
-         ],
+      return {
+         activeIndex,
       };
-      // 使用刚指定的配置项和数据显示图表。
-      myChart.setOption(option);
    },
 };
 </script>
 
-<style>
+<style lang="less" scoped>
+.el-container {
+   width: 100%;
+   height: 100%;
+   .el-aside {
+      width: 123px;
+      height: 100%;
+      .el-menu {
+         height: 100%;
+         .el-menu-item {
+            border-bottom: solid 1px #aaa;
+            padding: 0 5px;
+            a {
+               display: block;
+               width: 100%;
+               height: 100%;
+
+               color: #000;
+               word-break: normal;
+            }
+         }
+         .el-menu-item.is-active {
+            background-color: rgb(198, 226, 255);
+            a {
+               color: #3091ff;
+            }
+         }
+      }
+   }
+   .el-main {
+      padding: 10px;
+   }
+}
 </style>

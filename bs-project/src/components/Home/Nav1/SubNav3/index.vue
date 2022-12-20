@@ -17,7 +17,7 @@
    </div>
    <br />
    <div class="chart-div">
-      <div id="nav3chart4" class="chart" style="width: 1000px; height: 600px">chart</div>
+      <div id="nav1chart3" class="chart" style="width: 1000px; height: 600px">chart</div>
       <div>
          <p>{{ this.introduce }}</p>
       </div>
@@ -26,7 +26,7 @@
 
 <script>
 import * as echarts from "echarts";
-import { getSubNavData } from "../require.js";
+import { getSubNavTestData } from "../require.js";
 
 export default {
    data() {
@@ -42,7 +42,7 @@ export default {
    },
    methods: {
       search(myChart) {
-         getSubNavData(
+         getSubNavTestData(
             this.searchDate,
          ).then((res)=>{
             this.introduce = res.introduce;
@@ -52,7 +52,7 @@ export default {
    },
 
    mounted() {
-      this.myChart = echarts.init(document.getElementById("nav3chart4"));
+      this.myChart = echarts.init(document.getElementById("nav1chart3"));
       this.search(this.myChart);
    },
 };

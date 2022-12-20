@@ -1,12 +1,5 @@
 <template>
    <div class="form-div">
-      <el-input-number
-         v-model="searchCount"
-         :min="5"
-         :max="15"
-         placeholder="排行数"
-      />
-
       <el-date-picker
          v-model="searchDate"
          type="daterange"
@@ -18,13 +11,13 @@
       </el-date-picker>
       <el-button
          type="primary"
-         @click="this.search(this.myChart, this.searchDate, this.searchCount)"
+         @click="this.search(this.myChart)"
          >查询</el-button
       >
    </div>
    <br />
    <div class="chart-div">
-      <div id="nav1chart1" style="width: 1000px; height: 600px">chart</div>
+      <div id="nav4chart2" class="chart" style="width: 1000px; height: 600px">chart</div>
       <div>
          <p>{{ this.introduce }}</p>
       </div>
@@ -38,13 +31,11 @@ import { getSubNavData } from "../require.js";
 export default {
    data() {
       let searchDate = ["2022-12-01", "2023-01-11"];
-      let searchCount = 10;
       let introduce = "null";
       let myChart = null;
 
       return {
          searchDate,
-         searchCount,
          introduce,
          myChart,
       };
@@ -53,7 +44,6 @@ export default {
       search(myChart) {
          getSubNavData(
             this.searchDate,
-            this.searchCount
          ).then((res)=>{
             this.introduce = res.introduce;
             this.myChart.setOption(res.option);
@@ -62,32 +52,26 @@ export default {
    },
 
    mounted() {
-      this.myChart = echarts.init(document.getElementById("nav1chart1"));
-      this.search(this.myChart, this.searchDate, this.searchCount);
+      this.myChart = echarts.init(document.getElementById("nav4chart2"));
+      this.search(this.myChart);
    },
 };
 </script>
 
 <style lang="less" scoped>
 .form-div {
-   width: 600px;
+   width: 500px;
    height: 80px;
+   padding:0 0 0 20px;
 
    display: flex;
    justify-content: space-between;
    align-items: center;
-   .el-input-number {
-      width: 200px;
-
-      margin: 0 20px 0 15px;
-   }
    button {
       margin: 0 0 0 20px;
    }
 }
-.chart-div {
-   #nav1chart1 {
-      margin: 0 auto;
-   }
+.chart {
+   margin: 0 auto;
 }
 </style>

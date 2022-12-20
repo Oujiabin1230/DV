@@ -21,8 +21,20 @@
                <el-menu-item index="3">
                   <router-link to="/nav2/subnav1">导航2</router-link>
                </el-menu-item>
-               <el-menu-item index="4">
-                  <router-link to="/nav3">线形图</router-link>
+               <el-menu-item index="5">
+                  <router-link to="/nav3/subnav1">线形图</router-link>
+               </el-menu-item>
+               <el-menu-item index="6">
+                  <router-link to="/nav4/subnav1">导航4</router-link>
+               </el-menu-item>
+               <el-menu-item index="7">
+                  <router-link to="/nav5/subnav1">导航5</router-link>
+               </el-menu-item>
+               <el-menu-item index="8">
+                  <router-link to="/nav6/subnav1">导航6</router-link>
+               </el-menu-item>
+               <el-menu-item index="9">
+                  <router-link to="/nav7">预测</router-link>
                </el-menu-item>
             </el-menu>
          </div>
