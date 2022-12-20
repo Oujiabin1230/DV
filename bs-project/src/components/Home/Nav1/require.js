@@ -1,7 +1,9 @@
+import Vue from 'vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
 import { ElMessage } from 'element-plus'
+
 
 
 
@@ -16,6 +18,8 @@ export async function Nav1_SubNav1_Data(searchDate,searchCount) {
    let response_name = res.respdata.国家
    let response_num = res.respdata.确诊人数
    let introduce = `${searchDate},${searchCount}`
+
+
    // 此处为示例数据
    var option = {
       title: {
