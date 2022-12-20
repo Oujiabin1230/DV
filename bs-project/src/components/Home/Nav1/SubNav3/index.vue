@@ -3,10 +3,7 @@
       <el-input-number v-model="searchCount" :min="5" :max="15"/>
       <el-date-picker
          v-model="searchDate"
-         type="daterange"
-         range-separator="至"
-         start-placeholder="开始日期"
-         end-placeholder="结束日期"
+         type="date"
          value-format="YYYY-MM-DD"
       >
       </el-date-picker>
@@ -31,7 +28,7 @@ import { Nav1_SubNav3_Data } from "../require.js";
 
 export default {
    data() {
-      let searchDate = ["2020-12-01", "2021-01-11"];
+      let searchDate = "2020-12-01";
       let introduce = "null";
       let searchCount=8
       let myChart = null;

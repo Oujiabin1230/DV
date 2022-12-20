@@ -17,7 +17,7 @@
    </div>
    <br />
    <div class="chart-div">
-      <div id="nav4chart1" class="chart" style="width: 1000px; height: 600px">chart</div>
+      <div id="nav5chart1" class="chart" style="width: 1000px; height: 600px">chart</div>
       <div>
          <p>{{ this.introduce }}</p>
       </div>
@@ -52,7 +52,7 @@ export default {
    },
 
    mounted() {
-      this.myChart = echarts.init(document.getElementById("nav4chart1"));
+      this.myChart = echarts.init(document.getElementById("nav5chart1"));
       this.search(this.myChart);
    },
 };

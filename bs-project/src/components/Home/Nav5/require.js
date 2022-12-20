@@ -11,7 +11,7 @@ export async function getSubNavData() {
         data: [
           {
             value: 100,
-            name: 'A'
+            name: '5'
           },
           {
             value: 200,

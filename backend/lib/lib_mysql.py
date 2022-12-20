@@ -30,9 +30,7 @@ def select(cmd, time_interval=None, country_count=None):
     print(sql)
     cursor.execute(sql)
     rows = cursor.fetchall()
-    results = {}
-    results["sql_name"] = cmd
-    results["sql_introduce"] = cmd_json.get("sql_introduce")
+    results = {"sql_name": cmd, "sql_introduce": cmd_json.get("sql_introduce")}
     for field in cmd_json.get("fields"):
         results[field] = []
         for row in rows:

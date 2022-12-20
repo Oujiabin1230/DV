@@ -16,7 +16,10 @@
                <router-link to="/nav1/subnav3">累计测试人数</router-link>
             </el-menu-item>
             <el-menu-item index="4">
-               <router-link to="/nav1/subnav4">新增确诊</router-link>
+               <router-link to="/nav1/subnav4">期间新增确诊</router-link>
+            </el-menu-item>
+            <el-menu-item index="5">
+               <router-link to="/nav1/subnav5">期间新增死亡</router-link>
             </el-menu-item>
          </el-menu>
       </el-aside>

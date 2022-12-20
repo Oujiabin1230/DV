@@ -3,7 +3,10 @@
       <el-input-number v-model="searchCount" :min="5" :max="15"/>
       <el-date-picker
          v-model="searchDate"
-         type="date"
+         type="daterange"
+         range-separator="至"
+         start-placeholder="开始日期"
+         end-placeholder="结束日期"
          value-format="YYYY-MM-DD"
       >
       </el-date-picker>
@@ -15,7 +18,7 @@
    </div>
    <br />
    <div class="chart-div">
-      <div id="nav1chart1" class="chart" style="width: 1000px; height: 600px">chart</div>
+      <div id="nav1chart4" class="chart" style="width: 1000px; height: 600px">chart</div>
       <div>
          <p>{{ this.introduce }}</p>
       </div>
@@ -24,12 +27,11 @@
 
 <script>
 import * as echarts from "echarts";
-import { Nav1_SubNav1_Data } from "../require.js";
+import { Nav1_SubNav5_Data } from "../require.js";
 
 export default {
    data() {
-
-      let searchDate = "2020-12-25";
+      let searchDate = ["2020-12-01", "2021-01-11"];
       let introduce = "null";
       let searchCount=8
       let myChart = null;
@@ -43,7 +45,7 @@ export default {
    },
    methods: {
       search(myChart) {
-         Nav1_SubNav1_Data(
+         Nav1_SubNav5_Data(
             this.searchDate,
             this.searchCount
          ).then((res)=>{
@@ -54,7 +56,7 @@ export default {
    },
 
    mounted() {
-      this.myChart = echarts.init(document.getElementById("nav1chart1"));
+      this.myChart = echarts.init(document.getElementById("nav1chart4"));
       this.search(this.myChart);
    },
 };

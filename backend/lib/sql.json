@@ -23,11 +23,19 @@
     ],
     "sql_introduce": "xxxxx测试人数最多的国家"
   },
-  "国家-累计新增确诊人数图": {
+  "国家-期间新增确诊人数图": {
     "sql": "select distinct location as '国家',sum(new_cases) as '新增确诊人数' from xg.source where iso_code not like '%\\_%' and date between '{time_interval_start}' and '{time_interval_end}' group by location order by 新增确诊人数 desc limit {country_count};",
     "fields": [
       "国家",
       "新增确诊人数"
+    ],
+    "sql_introduce": "xxxxx的国家"
+  },
+  "国家-期间新增死亡人数图": {
+    "sql": "select location as '国家',max_num-min_num as '新增死亡人数' from (select location,min(total_deaths) as min_num,max(total_deaths) as max_num from xg.source where iso_code not like '%\\_%' and date between '{time_interval_start}' and '{time_interval_end}' group by location)a order by 新增死亡人数 desc limit {country_count};",
+    "fields": [
+      "国家",
+      "新增死亡人数"
     ],
     "sql_introduce": "xxxxx的国家"
   },

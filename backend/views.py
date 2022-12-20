@@ -64,3 +64,19 @@ def new_cases_sum(request):
         response['respMsg'] = str(e)
         response['respCode'] = 'failed'
     return JsonResponse(response)
+
+
+@require_http_methods(["GET"])
+def new_deaths_sum(request):
+    response = {}
+    try:
+        response['respdata'] = Bar().new_deaths_sum([request.GET.get("start_date"), request.GET.get("end_date")],
+                                                    request.GET.get("country_count"))
+        response['respMsg'] = 'request ok'
+        response['respCode'] = 'succeed'
+        print("-----------------")
+    except Exception as e:
+        print(e)
+        response['respMsg'] = str(e)
+        response['respCode'] = 'failed'
+    return JsonResponse(response)

@@ -7,6 +7,7 @@ import Nav1SubNav1 from '../components/Home/Nav1/SubNav1'
 import Nav1SubNav2 from '../components/Home/Nav1/SubNav2'
 import Nav1SubNav3 from '../components/Home/Nav1/SubNav3'
 import Nav1SubNav4 from '../components/Home/Nav1/SubNav4'
+import Nav1SubNav5 from '../components/Home/Nav1/SubNav5'
 import Nav2 from '../components/Home/Nav2'
 import Nav2SubNav1 from '../components/Home/Nav2/SubNav1'
 import Nav2SubNav2 from '../components/Home/Nav2/SubNav2'
@@ -23,10 +24,10 @@ import Nav4SubNav2 from '../components/Home/Nav4/SubNav2'
 import Nav4SubNav3 from '../components/Home/Nav4/SubNav3'
 import Nav4SubNav4 from '../components/Home/Nav4/SubNav4'
 import Nav5 from '../components/Home/Nav5'
-import Nav5SubNav1 from '../components/Home/Nav4/SubNav1'
-import Nav5SubNav2 from '../components/Home/Nav4/SubNav2'
-import Nav5SubNav3 from '../components/Home/Nav4/SubNav3'
-import Nav5SubNav4 from '../components/Home/Nav4/SubNav4'
+import Nav5SubNav1 from '../components/Home/Nav5/SubNav1'
+import Nav5SubNav2 from '../components/Home/Nav5/SubNav2'
+import Nav5SubNav3 from '../components/Home/Nav5/SubNav3'
+import Nav5SubNav4 from '../components/Home/Nav5/SubNav4'
 import Nav6 from '../components/Home/Nav6'
 import Nav6SubNav1 from '../components/Home/Nav6/SubNav1'
 import Nav6SubNav2 from '../components/Home/Nav6/SubNav2'
@@ -45,6 +46,7 @@ const routes = [
       { path: 'subnav2', component: Nav1SubNav2 },
       { path: 'subnav3', component: Nav1SubNav3 },
       { path: 'subnav4', component: Nav1SubNav4 },
+      { path: 'subnav5', component: Nav1SubNav5 },
     ]
   },
 

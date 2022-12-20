@@ -28,7 +28,7 @@
                   <router-link to="/nav4/subnav1">饼状图</router-link>
                </el-menu-item>
                <el-menu-item index="7">
-                  <router-link to="/nav5/subnav1">导航5</router-link>
+                  <router-link to="/nav5/subnav1">地图</router-link>
                </el-menu-item>
                <el-menu-item index="8">
                   <router-link to="/nav6/subnav1">导航6</router-link>

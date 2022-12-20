@@ -9,10 +9,7 @@ export async function getSubNavData() {
       {
         type: 'pie',
         data: [
-          {
-            value: 100,
-            name: 'A'
-          },
+
           {
             value: 200,
             name: 'B'
