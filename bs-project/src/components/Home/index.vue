@@ -19,13 +19,13 @@
                   <router-link to="/nav1/subnav1">柱状图</router-link>
                </el-menu-item>
                <el-menu-item index="3">
-                  <router-link to="/nav2/subnav1">导航2</router-link>
+                  <router-link to="/nav2/subnav1">漏斗图</router-link>
                </el-menu-item>
                <el-menu-item index="5">
                   <router-link to="/nav3/subnav1">线形图</router-link>
                </el-menu-item>
                <el-menu-item index="6">
-                  <router-link to="/nav4/subnav1">导航4</router-link>
+                  <router-link to="/nav4/subnav1">饼状图</router-link>
                </el-menu-item>
                <el-menu-item index="7">
                   <router-link to="/nav5/subnav1">导航5</router-link>

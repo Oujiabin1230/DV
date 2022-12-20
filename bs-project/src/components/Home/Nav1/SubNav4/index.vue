@@ -27,11 +27,11 @@
 
 <script>
 import * as echarts from "echarts";
-import { getSubNavData } from "../require.js";
+import { Nav1_SubNav4_Data } from "../require.js";
 
 export default {
    data() {
-      let searchDate = ["2022-12-01", "2023-01-11"];
+      let searchDate = ["2020-12-01", "2021-01-11"];
       let introduce = "null";
       let searchCount=8
       let myChart = null;
@@ -45,7 +45,7 @@ export default {
    },
    methods: {
       search(myChart) {
-         getSubNavData(
+         Nav1_SubNav4_Data(
             this.searchDate,
             this.searchCount
          ).then((res)=>{

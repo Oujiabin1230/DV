@@ -7,21 +7,21 @@
             active-text-color="#3091ff"
          >
             <el-menu-item index="1">
-               <router-link to="/nav1/subnav1">各国新增死亡人数</router-link>
+               <router-link to="/nav1/subnav1">累计确诊人数</router-link>
             </el-menu-item>
             <el-menu-item index="2">
-               <router-link to="/nav1/subnav2">subnav2</router-link>
+               <router-link to="/nav1/subnav2">累计死亡人数</router-link>
             </el-menu-item>
             <el-menu-item index="3">
-               <router-link to="/nav1/subnav3">subnav3</router-link>
+               <router-link to="/nav1/subnav3">累计测试人数</router-link>
             </el-menu-item>
             <el-menu-item index="4">
-               <router-link to="/nav1/subnav4">subnav4</router-link>
+               <router-link to="/nav1/subnav4">新增确诊</router-link>
             </el-menu-item>
          </el-menu>
       </el-aside>
       <el-main>
-         <h2>Nav1</h2>
+         <h2>筛选项</h2>
          <router-view></router-view>
       </el-main>
    </el-container>
