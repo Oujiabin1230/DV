@@ -63,7 +63,7 @@ export default {
 <style lang="less" scoped>
 .form-div {
    width: 500px;
-   height: 80px;
+   height: 60px;
    padding:0 0 0 20px;
 
    display: flex;
