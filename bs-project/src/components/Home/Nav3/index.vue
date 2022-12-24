@@ -7,10 +7,10 @@
             active-text-color="#3091ff"
          >
             <el-menu-item index="1">
-               <router-link to="/nav3/subnav1">折线图test1</router-link>
+               <router-link to="/nav3/subnav1">时间段内新增数据</router-link>
             </el-menu-item>
             <el-menu-item index="2">
-               <router-link to="/nav3/subnav2">折线图test2</router-link>
+               <router-link to="/nav3/subnav2">时间段内总数据</router-link>
             </el-menu-item>
             <el-menu-item index="3">
                <router-link to="/nav3/subnav3">折线图test3</router-link>

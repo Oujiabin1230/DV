@@ -33,17 +33,20 @@
 </template>
 
 <script>
+import Vue from 'vue'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 import * as echarts from "echarts";
-import { getSubNavData } from "../require.js";
+import { Nav3_SubNav1_Data } from "../require.js";
+
 
 export default {
    data() {
       let searchDate = ["2020-12-01", "2021-01-11"];
       let introduce = "null";
       let myChart = null;
-      let searchCountry='aaa'
-      let CountryList=['aaa','bbb']
-
+      let searchCountry='国家'
+      let CountryList=[]
       return {
          searchDate,
          introduce,
@@ -54,7 +57,7 @@ export default {
    },
    methods: {
       search(myChart) {
-         getSubNavData(
+         Nav3_SubNav1_Data(
             this.searchDate,
             this.searchCountry
          ).then((res)=>{
@@ -62,11 +65,18 @@ export default {
             this.myChart.setOption(res.option);
          });
       },
+      country(){
+      axios.get('http://127.0.0.1:8000/api/countries').then((response)=>{
+        this.CountryList=response.data.respdata.location
+      })
+      }
    },
 
    mounted() {
+      this.country();
       this.myChart = echarts.init(document.getElementById("nav3chart1"));
       this.search(this.myChart);
+
    },
 };
 </script>

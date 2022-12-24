@@ -7,16 +7,16 @@
             active-text-color="#3091ff"
          >
             <el-menu-item index="1">
-               <router-link to="/nav2/subnav1">漏斗图test1</router-link>
+               <router-link to="/nav2/subnav1">各洲当前新冠确诊</router-link>
             </el-menu-item>
             <el-menu-item index="2">
-               <router-link to="/nav2/subnav2">漏斗图test2</router-link>
+               <router-link to="/nav2/subnav2">各洲当前新冠死亡</router-link>
             </el-menu-item>
             <el-menu-item index="3">
-               <router-link to="/nav2/subnav3">漏斗图test3</router-link>
+               <router-link to="/nav2/subnav3">洲区间确诊</router-link>
             </el-menu-item>
             <el-menu-item index="4">
-               <router-link to="/nav2/subnav4">漏斗图test4</router-link>
+               <router-link to="/nav2/subnav4">洲区间死亡</router-link>
             </el-menu-item>
          </el-menu>
       </el-aside>

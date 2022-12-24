@@ -39,14 +39,86 @@
     ],
     "sql_introduce": "xxxxx的国家"
   },
-  "每个洲不同时段的确诊占比": {
-    "sql": "select continent,sum(total_cases_country) as total_cases_continent from(select continent,iso_code,max(total_cases)as total_cases_country from xg.source where date between '{time_interval_start}' and '{time_interval_end}' and continent!=\"\" group by continent,iso_code) t1 group by continent;",
+  "各个洲当前的确诊人数": {
+    "sql": "select continent,sum(total_cases_country) as total_cases_continent from(select continent,iso_code,max(total_cases)as total_cases_country from xg.source where date between '{time_interval_start}' and '{time_interval_end}' and continent!=\"\" and iso_code not like '%\\_%' group by continent,iso_code) t1 group by continent;",
     "fields": [
       "continent",
       "total_cases_continent"
     ],
     "sql_introduce": "这是用于显示每个洲不同时段的确诊占比"
   },
+  "各个洲当前的死亡人数": {
+    "sql": "select continent,sum(max_num) as num \nfrom(select continent,iso_code,max(total_deaths) as max_num from xg.source where date between '{time_interval_start}' and '{time_interval_end}' \nand continent!=\"\" and iso_code not like '%\\_%' group by continent,iso_code) b group by continent;",
+    "fields": [
+      "continent",
+      "num"
+    ],
+    "sql_introduce": "flag-2-2-"
+  },
+
+"各洲区间时段确诊人数": {
+    "sql": "select continent,sum(num) as num\nfrom(select continent,iso_code,max(total_cases)-min(total_cases) as num from xg.source where date between '{time_interval_start}' and '{time_interval_end}' \nand continent!=\"\" and iso_code not like '%\\_%' group by continent,iso_code) b group by continent;",
+    "fields": [
+      "continent",
+      "num"
+    ],
+    "sql_introduce": "yuuyuy"
+  },
+
+
+"各洲区间时段死亡人数": {
+    "sql": "select continent,sum(num) as num\nfrom(select continent,iso_code,max(total_deaths)-min(total_deaths) as num from xg.source where date between '{time_interval_start}' and '{time_interval_end}' \nand continent!=\"\" and iso_code not like '%\\_%' group by continent,iso_code) b group by continent;",
+    "fields": [
+      "continent",
+      "num"
+    ],
+    "sql_introduce": "yuuyuwwwwwwy"
+  },
+
+"国家列表": {
+  "sql": "select distinct location from xg.source where iso_code not like '%\\_%';",
+  "fields": [
+      "location"
+    ],
+    "sql_introduce": "zzzzzzzz"
+},
+
+
+
+"时间区间新增确诊数据": {
+  "sql": "select date,location,new_cases from xg.source where iso_code not like '%\\_%' \nand location='{country_flag}' and date between '{time_interval_start}' and '{time_interval_end}' order by date ;",
+  "fields": [
+      "date",
+      "new_cases"
+    ],
+    "sql_introduce": "zzzzzzzz"
+},
+
+
+
+"时间区间新增死亡数据": {
+  "sql": "select date,b_total_deaths-a_total_deaths as new_deaths from(\nselect b.date as date , a.location,a_total_deaths,b_total_deaths from \n(select date,location,total_deaths as a_total_deaths from xg.source where iso_code not like '%\\_%' \nand location='{country_flag}' and date between DATE_SUB('{time_interval_start}',INTERVAL 1 DAY) and '{time_interval_end}' order by date )a\nleft join\n(select date,location,total_deaths as b_total_deaths from xg.source where iso_code not like '%\\_%' \nand location='{country_flag}' and date between '{time_interval_start}' and '{time_interval_end}' order by date )b\non a.date=DATE_SUB(b.date,INTERVAL 1 DAY) and a.location=b.location)c;",
+  "fields": [
+      "date",
+      "new_deaths"
+    ],
+    "sql_introduce": "zzzzzzzz"
+},
+
+
+"国家累计数据": {
+  "sql": "select date,total_deaths,total_cases from xg.source where date between '{time_interval_start}' and '{time_interval_end}' and location='{country_flag}' and iso_code not like '%\\_%' order by date;",
+  "fields": [
+      "date",
+      "total_deaths",
+      "total_cases"
+    ],
+    "sql_introduce": "zzzzzzzz"
+},
+
+
+
+
   "bili": {
     "sql": "select people_fully_vaccinated/population as '完全接种的占比', new_cases as '新增' from xg.source where location='Albania'and date between '2021-09-06' and '2021-09-13' ;",
     "fields": [

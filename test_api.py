@@ -16,3 +16,34 @@ import requests
 
 #res = requests.get("http://127.0.0.1:8000/api/new_deaths_sum/?start_date=2020-01-01&end_date=2021-02-14&country_count=15")
 #print(res.json())
+
+
+#res = requests.get("http://127.0.0.1:8000/api/continent_cases/?start_date=2020-05-04&end_date=2020-05-04")
+#print(res.json())
+
+#res = requests.get("http://127.0.0.1:8000/api/continent_deaths/?start_date=2020-05-04&end_date=2020-05-04")
+#print(res.json())
+
+#res = requests.get("http://127.0.0.1:8000/api/continent_new_deaths/?start_date=2020-05-04&end_date=2020-05-04")
+#print(res.json())
+
+#res = requests.get("http://127.0.0.1:8000/api/continent_new_cases/?start_date=2020-05-04&end_date=2020-05-04")
+#print(res.json())
+
+#res = requests.get("http://127.0.0.1:8000/api/countries")
+#print(res.json())
+
+#res = requests.get("http://127.0.0.1:8000/api/country_new_cases/?start_date=2020-05-01&end_date=2020-05-10&country=Cuba")
+#print(res.json())
+
+
+
+#res = requests.get("http://127.0.0.1:8000/api/country_new_deaths/?start_date=2020-05-01&end_date=2020-05-10&country=Cuba")
+#print(res.json())
+
+res = requests.get("http://127.0.0.1:8000/api/country_now_data/?start_date=2020-05-01&end_date=2020-05-10&country=Cuba")
+print(res.json())
+
+
+
+

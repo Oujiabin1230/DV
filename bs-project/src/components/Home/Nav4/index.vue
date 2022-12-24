@@ -7,16 +7,16 @@
             active-text-color="#3091ff"
          >
             <el-menu-item index="1">
-               <router-link to="/nav4/subnav1">玫瑰图test1</router-link>
+               <router-link to="/nav4/subnav1">各洲当前确诊占比</router-link>
             </el-menu-item>
             <el-menu-item index="2">
-               <router-link to="/nav4/subnav2">玫瑰图test2</router-link>
+               <router-link to="/nav4/subnav2">各洲当前死亡占比</router-link>
             </el-menu-item>
             <el-menu-item index="3">
-               <router-link to="/nav4/subnav3">玫瑰图test3</router-link>
+               <router-link to="/nav4/subnav3">洲时间段内确诊</router-link>
             </el-menu-item>
             <el-menu-item index="4">
-               <router-link to="/nav4/subnav4">玫瑰图test4</router-link>
+               <router-link to="/nav4/subnav4">洲时间段内死亡</router-link>
             </el-menu-item>
          </el-menu>
       </el-aside>
