@@ -1,46 +1,32 @@
+
 export async function getSubNavData() {
   var introduce = 'test introduce'
-  var option = {
+  let option = {
+    layoutSize:'150%',
+    layoutCenter:['45%','50%'],
     tooltip: {
-      trigger: 'item',
-      formatter: '{a} <br/>{b} : {c} ({d}%)'
+      formatter: '{b} : {c}'
+    },
+    visualMap: {
+      min: 0,
+      max: 1000000,
+      text: ['High', 'Low'],
+      realtime: false,
+      calculabe: true,
+      color: ['orangered', 'yellow', 'lightskyblue'],
+
     },
     series: [
       {
-        type: 'pie',
+        zoom: 1.1,
+        type: 'map',
+        map: 'world',
         data: [
-          {
-            value: 100,
-            name: '5'
-          },
-          {
-            value: 200,
-            name: 'B'
-          },
-          {
-            value: 300,
-            name: 'C'
-          },
-          {
-            value: 400,
-            name: 'D'
-          },
-          {
-            value: 500,
-            name: 'E'
-          }
-        ],
-        roseType: 'area'
+          { name: 'China', value: 114514 }
+        ]
       }
-    ],
-    emphasis: {
-      itemStyle: {
-        shadowBlur: 10,
-        shadowOffsetX: 0,
-        shadowColor: 'rgba(0, 0, 0, 0.5)'
-      }
-    }
-  };
+    ]
+  }
 
   return { option, introduce }
 }

@@ -1,6 +1,8 @@
 export async function getSubNavData(){
    var introduce = 'test introduce'
    var option = {
+    tooltip: {
+    },
     series: [
       {
         type: 'pie',

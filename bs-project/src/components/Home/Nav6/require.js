@@ -2,8 +2,6 @@ export async function getSubNavData() {
   var introduce = 'test introduce'
   var option = {
     tooltip: {
-      trigger: 'item',
-      formatter: '{a} <br/>{b} : {c} ({d}%)'
     },
     series: [
       {

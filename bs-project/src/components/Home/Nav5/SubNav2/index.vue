@@ -17,7 +17,7 @@
    </div>
    <br />
    <div class="chart-div">
-      <div id="nav5chart2" class="chart" style="width: 1000px; height: 600px">chart</div>
+      <div id="nav5chart2" class="chart" style="width: 1500px; height: 700px">chart</div>
       <div>
          <p>{{ this.introduce }}</p>
       </div>
@@ -26,6 +26,7 @@
 
 <script>
 import * as echarts from "echarts";
+import world from '../world.json'
 import { getSubNavData } from "../require.js";
 
 export default {
@@ -52,6 +53,7 @@ export default {
    },
 
    mounted() {
+      echarts.registerMap('world',{geoJSON:world})
       this.myChart = echarts.init(document.getElementById("nav5chart2"));
       this.search(this.myChart);
    },
@@ -70,8 +72,5 @@ export default {
    button {
       margin: 0 0 0 20px;
    }
-}
-.chart {
-   margin: 0 auto;
 }
 </style>

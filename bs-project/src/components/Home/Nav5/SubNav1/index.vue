@@ -9,15 +9,13 @@
          value-format="YYYY-MM-DD"
       >
       </el-date-picker>
-      <el-button
-         type="primary"
-         @click="this.search(this.myChart)"
+      <el-button type="primary" @click="this.search(this.myChart)"
          >查询</el-button
       >
    </div>
    <br />
    <div class="chart-div">
-      <div id="nav5chart1" class="chart" style="width: 1000px; height: 600px">chart</div>
+      <div id="nav5chart1" class="chart" style="width: 1500px; height: 700px">chart</div>
       <div>
          <p>{{ this.introduce }}</p>
       </div>
@@ -26,6 +24,7 @@
 
 <script>
 import * as echarts from "echarts";
+import world from "../world.json";
 import { getSubNavData } from "../require.js";
 
 export default {
@@ -42,9 +41,7 @@ export default {
    },
    methods: {
       search(myChart) {
-         getSubNavData(
-            this.searchDate,
-         ).then((res)=>{
+         getSubNavData(this.searchDate).then((res) => {
             this.introduce = res.introduce;
             this.myChart.setOption(res.option);
          });
@@ -52,6 +49,7 @@ export default {
    },
 
    mounted() {
+      echarts.registerMap("world", { geoJSON: world });
       this.myChart = echarts.init(document.getElementById("nav5chart1"));
       this.search(this.myChart);
    },
@@ -61,8 +59,8 @@ export default {
 <style lang="less" scoped>
 .form-div {
    width: 500px;
-   height: 80px;
-   padding:0 0 0 20px;
+   height: 60px;
+   padding: 0 0 0 20px;
 
    display: flex;
    justify-content: space-between;
@@ -70,8 +68,5 @@ export default {
    button {
       margin: 0 0 0 20px;
    }
-}
-.chart {
-   margin: 0 auto;
 }
 </style>
