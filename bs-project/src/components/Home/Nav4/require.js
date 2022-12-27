@@ -4,7 +4,7 @@ import VueAxios from 'vue-axios'
 import { ElMessage } from 'element-plus'
 
 export async function Nav4_SubNav1_Data(searchDate) {
-   var url = `http://127.0.0.1:8000/api/continent_cases/?start_date=${searchDate}&end_date=${searchDate}`
+   var url = `http://8.134.93.160:8000/api/continent_cases/?start_date=${searchDate}&end_date=${searchDate}`
    const { data: res, status, statusText } = await axios.get(url)
    if (status !== 200) {
       ElMessage.error(statusText)
@@ -55,7 +55,7 @@ export async function Nav4_SubNav1_Data(searchDate) {
 }
 
 export async function Nav4_SubNav2_Data(searchDate) {
-   var url = `http://127.0.0.1:8000/api/continent_deaths/?start_date=${searchDate}&end_date=${searchDate}`
+   var url = `http://8.134.93.160:8000/api/continent_deaths/?start_date=${searchDate}&end_date=${searchDate}`
    const { data: res, status, statusText } = await axios.get(url)
    if (status !== 200) {
       ElMessage.error(statusText)
@@ -109,7 +109,7 @@ export async function Nav4_SubNav2_Data(searchDate) {
 
 
 export async function Nav4_SubNav3_Data(searchDate) {
-   var url = `http://127.0.0.1:8000/api/continent_new_cases/?start_date=${searchDate[0]}&end_date=${searchDate[1]}`
+   var url = `http://8.134.93.160:8000/api/continent_new_cases/?start_date=${searchDate[0]}&end_date=${searchDate[1]}`
    const { data: res, status, statusText } = await axios.get(url)
    if (status !== 200) {
       ElMessage.error(statusText)
@@ -162,7 +162,7 @@ export async function Nav4_SubNav3_Data(searchDate) {
 
 
 export async function Nav4_SubNav4_Data(searchDate) {
-   var url = `http://127.0.0.1:8000/api/continent_new_deaths/?start_date=${searchDate[0]}&end_date=${searchDate[1]}`
+   var url = `http://8.134.93.160:8000/api/continent_new_deaths/?start_date=${searchDate[0]}&end_date=${searchDate[1]}`
    const { data: res, status, statusText } = await axios.get(url)
    if (status !== 200) {
       ElMessage.error(statusText)

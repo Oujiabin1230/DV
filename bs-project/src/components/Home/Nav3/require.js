@@ -4,13 +4,13 @@ import VueAxios from 'vue-axios'
 import { ElMessage } from 'element-plus'
 
 export async function Nav3_SubNav1_Data(searchDate,searchCountry) {
-   var url_cases = `http://127.0.0.1:8000/api/country_new_cases/?start_date=${searchDate[0]}&end_date=${searchDate[1]}&country=${searchCountry}`
+   var url_cases = `http://8.134.93.160:8000/api/country_new_cases/?start_date=${searchDate[0]}&end_date=${searchDate[1]}&country=${searchCountry}`
    const { data: res_cases, status_cases, statusText_cases } = await axios.get(url_cases)
    if (status_cases !== 200) {
       ElMessage.error(statusText_cases)
    }
 
-   var url_deaths = `http://127.0.0.1:8000/api/country_new_deaths/?start_date=${searchDate[0]}&end_date=${searchDate[1]}&country=${searchCountry}`
+   var url_deaths = `http://8.134.93.160:8000/api/country_new_deaths/?start_date=${searchDate[0]}&end_date=${searchDate[1]}&country=${searchCountry}`
    const { data: res_deaths, status_deaths, statusText_deaths } = await axios.get(url_deaths)
    if (status_deaths !== 200) {
       ElMessage.error(statusText_deaths)
@@ -55,7 +55,7 @@ export async function Nav3_SubNav1_Data(searchDate,searchCountry) {
 
 
 export async function Nav3_SubNav2_Data(searchDate,searchCountry) {
-   var url_cases = `http://127.0.0.1:8000/api/country_now_data/?start_date=${searchDate[0]}&end_date=${searchDate[1]}&country=${searchCountry}`
+   var url_cases = `http://8.134.93.160:8000/api/country_now_data/?start_date=${searchDate[0]}&end_date=${searchDate[1]}&country=${searchCountry}`
    const { data: res, status, statusText } = await axios.get(url_cases)
    if (status !== 200) {
       ElMessage.error(statusText)

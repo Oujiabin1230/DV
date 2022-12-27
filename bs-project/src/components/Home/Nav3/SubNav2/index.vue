@@ -66,7 +66,7 @@ export default {
          });
       },
       country(){
-      axios.get('http://127.0.0.1:8000/api/countries').then((response)=>{
+      axios.get('http://8.134.93.160:8000/api/countries').then((response)=>{
         this.CountryList=response.data.respdata.location
       })
       }
