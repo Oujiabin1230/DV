@@ -16,8 +16,6 @@ import Nav2SubNav4 from '../components/Home/Nav2/SubNav4'
 import Nav3 from '../components/Home/Nav3'
 import Nav3SubNav1 from '../components/Home/Nav3/SubNav1'
 import Nav3SubNav2 from '../components/Home/Nav3/SubNav2'
-import Nav3SubNav3 from '../components/Home/Nav3/SubNav3'
-import Nav3SubNav4 from '../components/Home/Nav3/SubNav4'
 import Nav4 from '../components/Home/Nav4'
 import Nav4SubNav1 from '../components/Home/Nav4/SubNav1'
 import Nav4SubNav2 from '../components/Home/Nav4/SubNav2'
@@ -26,13 +24,9 @@ import Nav4SubNav4 from '../components/Home/Nav4/SubNav4'
 import Nav5 from '../components/Home/Nav5'
 import Nav5SubNav1 from '../components/Home/Nav5/SubNav1'
 import Nav5SubNav2 from '../components/Home/Nav5/SubNav2'
-import Nav5SubNav3 from '../components/Home/Nav5/SubNav3'
-import Nav5SubNav4 from '../components/Home/Nav5/SubNav4'
 import Nav6 from '../components/Home/Nav6'
 import Nav6SubNav1 from '../components/Home/Nav6/SubNav1'
 import Nav6SubNav2 from '../components/Home/Nav6/SubNav2'
-import Nav6SubNav3 from '../components/Home/Nav6/SubNav3'
-import Nav6SubNav4 from '../components/Home/Nav6/SubNav4'
 import Nav7 from '../components/Home/Nav7'
 
 const routes = [
@@ -66,8 +60,6 @@ const routes = [
       { path: "/", redirect: '/subnav1' },
       { path: 'subnav1', component: Nav3SubNav1 },
       { path: 'subnav2', component: Nav3SubNav2 },
-      { path: 'subnav3', component: Nav3SubNav3 },
-      { path: 'subnav4', component: Nav3SubNav4 },
     ]
   },
   {
@@ -86,8 +78,7 @@ const routes = [
       { path: "/", redirect: '/subnav1' },
       { path: 'subnav1', component: Nav5SubNav1 },
       { path: 'subnav2', component: Nav5SubNav2 },
-      { path: 'subnav3', component: Nav5SubNav3 },
-      { path: 'subnav4', component: Nav5SubNav4 },
+
     ]
   },
   {
@@ -96,8 +87,7 @@ const routes = [
       { path: "/", redirect: '/subnav1' },
       { path: 'subnav1', component: Nav6SubNav1 },
       { path: 'subnav2', component: Nav6SubNav2 },
-      { path: 'subnav3', component: Nav6SubNav3 },
-      { path: 'subnav4', component: Nav6SubNav4 },
+
     ]
   },
   {

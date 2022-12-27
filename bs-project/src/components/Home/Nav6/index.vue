@@ -7,16 +7,10 @@
             active-text-color="#3091ff"
          >
             <el-menu-item index="1">
-               <router-link to="/nav6/subnav1">玫瑰图test1</router-link>
+               <router-link to="/nav6/subnav1">世界新增日历</router-link>
             </el-menu-item>
             <el-menu-item index="2">
-               <router-link to="/nav6/subnav2">玫瑰图test2</router-link>
-            </el-menu-item>
-            <el-menu-item index="3">
-               <router-link to="/nav6/subnav3">玫瑰图test3</router-link>
-            </el-menu-item>
-            <el-menu-item index="4">
-               <router-link to="/nav6/subnav4">玫瑰图test4</router-link>
+               <router-link to="/nav6/subnav2">国家新增日历</router-link>
             </el-menu-item>
          </el-menu>
       </el-aside>

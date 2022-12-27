@@ -67,5 +67,10 @@ class Line:
         return data
 
 
-dt = Line().country_now_data(["2020-05-01", "2020-05-10"], "Cuba")
+class map_pic:
+    def map_day_new(self, date_list):
+        data = select(cmd="日新增确诊和死亡", time_interval=date_list)
+        return data
+
+dt = map_pic().map_day_new(["2020-05-01", "2020-05-01"])
 print(dt)

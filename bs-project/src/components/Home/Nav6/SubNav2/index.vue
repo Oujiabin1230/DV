@@ -1,14 +1,29 @@
 <template>
    <div class="form-div">
-      <el-date-picker
-         v-model="searchDate"
-         type="daterange"
-         range-separator="至"
-         start-placeholder="开始日期"
-         end-placeholder="结束日期"
-         value-format="YYYY-MM-DD"
-      >
-      </el-date-picker>
+      <el-select v-model="this.searchCountry" class="m-2" placeholder="Select" size="large">
+         <el-option
+            v-for="item in this.CountryList"
+            :key="item"
+            :label="item"
+            :value="item"
+         />
+      </el-select>
+      <el-select v-model="this.searchYear" class="m-2" placeholder="Select" size="large">
+         <el-option
+            v-for="item in this.YearList"
+            :key="item"
+            :label="item"
+            :value="item"
+         />
+      </el-select>
+      <el-select v-model="this.searchtype" class="m-2" placeholder="Select" size="large">
+         <el-option
+            v-for="item in this.typeList"
+            :key="item"
+            :label="item"
+            :value="item"
+         />
+      </el-select>
       <el-button
          type="primary"
          @click="this.search(this.myChart)"
@@ -25,11 +40,21 @@
 </template>
 
 <script>
-import * as echarts from "echarts";
 import { getSubNavData } from "../require.js";
+import Vue from 'vue';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
+import * as echarts from "echarts";
+
 
 export default {
    data() {
+      let searchCountry='国家';
+      let CountryList=[];
+      let searchYear='年份';
+      let YearList = ["2020", "2021"];
+      let searchtype='指标';
+      let typeList = ["死亡", "确诊"];
       let searchDate = ["2020-12-01", "2021-01-11"];
       let introduce = "null";
       let myChart = null;
@@ -38,6 +63,13 @@ export default {
          searchDate,
          introduce,
          myChart,
+         CountryList,
+         searchCountry,
+         searchYear,
+         YearList,
+         searchtype,
+         typeList,
+
       };
    },
    methods: {
@@ -49,9 +81,15 @@ export default {
             this.myChart.setOption(res.option);
          });
       },
+      country(){
+      axios.get('http://8.134.93.160:8000/api/countries').then((response)=>{
+        this.CountryList=response.data.respdata.location
+      })
+      }
    },
 
    mounted() {
+      this.country();
       this.myChart = echarts.init(document.getElementById("nav4chart2"));
       this.search(this.myChart);
    },

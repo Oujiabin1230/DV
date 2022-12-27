@@ -12,12 +12,6 @@
             <el-menu-item index="2">
                <router-link to="/nav3/subnav2">时间段内总数据</router-link>
             </el-menu-item>
-            <el-menu-item index="3">
-               <router-link to="/nav3/subnav3">折线图test3</router-link>
-            </el-menu-item>
-            <el-menu-item index="4">
-               <router-link to="/nav3/subnav4">折线图test4</router-link>
-            </el-menu-item>
          </el-menu>
       </el-aside>
       <el-main>

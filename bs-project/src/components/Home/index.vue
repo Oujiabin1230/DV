@@ -31,7 +31,7 @@
                   <router-link to="/nav5/subnav1">地图</router-link>
                </el-menu-item>
                <el-menu-item index="8">
-                  <router-link to="/nav6/subnav1">导航6</router-link>
+                  <router-link to="/nav6/subnav1">日历图</router-link>
                </el-menu-item>
                <el-menu-item index="9">
                   <router-link to="/nav7">预测</router-link>

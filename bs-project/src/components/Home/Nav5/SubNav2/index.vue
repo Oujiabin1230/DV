@@ -2,10 +2,7 @@
    <div class="form-div">
       <el-date-picker
          v-model="searchDate"
-         type="daterange"
-         range-separator="至"
-         start-placeholder="开始日期"
-         end-placeholder="结束日期"
+         type="date"
          value-format="YYYY-MM-DD"
       >
       </el-date-picker>
@@ -27,11 +24,11 @@
 <script>
 import * as echarts from "echarts";
 import world from '../world.json'
-import { getSubNavData } from "../require.js";
+import { Nav5_SubNav2_Data } from "../require.js";
 
 export default {
    data() {
-      let searchDate = ["2020-12-01", "2021-01-11"];
+      let searchDate = "2020-12-01";
       let introduce = "null";
       let myChart = null;
 
@@ -43,7 +40,7 @@ export default {
    },
    methods: {
       search(myChart) {
-         getSubNavData(
+         Nav5_SubNav2_Data(
             this.searchDate,
          ).then((res)=>{
             this.introduce = res.introduce;
