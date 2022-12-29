@@ -2,7 +2,7 @@
 
 from django.http import JsonResponse
 from django.views.decorators.http import require_http_methods
-from backend.models import Bar, Funnel, Others, Line, map_pic
+from backend.models import Bar, Funnel, Others, Line, map_pic, rili
 
 
 @require_http_methods(["GET"])
@@ -203,6 +203,34 @@ def map_day_new(request):
     response = {}
     try:
         response['respdata'] = map_pic().map_day_new([request.GET.get("start_date"), request.GET.get("end_date")])
+        response['respMsg'] = 'request ok'
+        response['respCode'] = 'succeed'
+    except Exception as e:
+        print(e)
+        response['respMsg'] = str(e)
+        response['respCode'] = 'failed'
+    return JsonResponse(response)
+
+
+@require_http_methods(["GET"])
+def rili_world_new(request):
+    response = {}
+    try:
+        response['respdata'] = rili().rili_world_new([request.GET.get("start_date"), request.GET.get("end_date")])
+        response['respMsg'] = 'request ok'
+        response['respCode'] = 'succeed'
+    except Exception as e:
+        print(e)
+        response['respMsg'] = str(e)
+        response['respCode'] = 'failed'
+    return JsonResponse(response)
+
+@require_http_methods(["GET"])
+def rili_country_new(request):
+    response = {}
+    try:
+        response['respdata'] = rili().rili_country_new([request.GET.get("start_date"), request.GET.get("end_date")],
+                                                       request.GET.get("country"))
         response['respMsg'] = 'request ok'
         response['respCode'] = 'succeed'
     except Exception as e:

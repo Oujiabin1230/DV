@@ -8,14 +8,6 @@
             :value="item"
          />
       </el-select>
-      <el-select v-model="this.searchtype" class="m-2" placeholder="Select" size="large">
-         <el-option
-            v-for="item in this.typeList"
-            :key="item"
-            :label="item"
-            :value="item"
-         />
-      </el-select>
       <el-button type="primary" @click="this.search(this.myChart)"
          >查询</el-button
       >
@@ -33,7 +25,7 @@
 
 <script>
 import * as echarts from "echarts";
-import { getSubNavData } from "../require.js";
+import { Nav6_SubNav1_Data } from "../require.js";
 
 export default {
    data() {
@@ -62,7 +54,7 @@ export default {
    },
    methods: {
       search(myChart) {
-         getSubNavData(this.searchDate).then((res) => {
+         Nav6_SubNav1_Data(this.searchYear).then((res) => {
             this.introduce = res.introduce;
             this.myChart.setOption(res.option);
          });

@@ -7,10 +7,10 @@
             active-text-color="#3091ff"
          >
             <el-menu-item index="1">
-               <router-link to="/nav6/subnav1">世界新增日历</router-link>
+               <router-link to="/nav6/subnav1">世界新确诊日历</router-link>
             </el-menu-item>
             <el-menu-item index="2">
-               <router-link to="/nav6/subnav2">国家新增日历</router-link>
+               <router-link to="/nav6/subnav2">国家新确诊日历</router-link>
             </el-menu-item>
          </el-menu>
       </el-aside>

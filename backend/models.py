@@ -72,5 +72,13 @@ class map_pic:
         data = select(cmd="日新增确诊和死亡", time_interval=date_list)
         return data
 
-dt = map_pic().map_day_new(["2020-05-01", "2020-05-01"])
-print(dt)
+
+class rili:
+    def rili_world_new(self, date_list):
+        data = select(cmd="日历世界新增确诊", time_interval=date_list)
+        return data
+    def rili_country_new(self, date_list, country):
+        data = select_country(cmd="日历国家新增确诊", time_interval=date_list, country=country)
+        return data
+
+

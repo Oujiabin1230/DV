@@ -16,14 +16,6 @@
             :value="item"
          />
       </el-select>
-      <el-select v-model="this.searchtype" class="m-2" placeholder="Select" size="large">
-         <el-option
-            v-for="item in this.typeList"
-            :key="item"
-            :label="item"
-            :value="item"
-         />
-      </el-select>
       <el-button
          type="primary"
          @click="this.search(this.myChart)"
@@ -40,7 +32,7 @@
 </template>
 
 <script>
-import { getSubNavData } from "../require.js";
+import { Nav6_SubNav2_Data } from "../require.js";
 import Vue from 'vue';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
@@ -74,8 +66,9 @@ export default {
    },
    methods: {
       search(myChart) {
-         getSubNavData(
-            this.searchDate,
+         Nav6_SubNav2_Data(
+            this.searchYear,
+            this.searchCountry
          ).then((res)=>{
             this.introduce = res.introduce;
             this.myChart.setOption(res.option);

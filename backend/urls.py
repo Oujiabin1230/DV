@@ -15,7 +15,7 @@ from django.urls import re_path as url
 
 from backend.views import total_cases, total_deaths, total_tests, new_cases_sum, new_deaths_sum, continent_cases, \
     continent_deaths, continent_new_deaths, continent_new_cases, countries, country_new_cases,country_new_deaths,\
-    country_now_data, map_day_new
+    country_now_data, map_day_new, rili_world_new, rili_country_new
 
 urlpatterns = [
     url("total_cases", total_cases),
@@ -32,4 +32,7 @@ urlpatterns = [
     url("country_new_deaths", country_new_deaths),
     url("country_now_data", country_now_data),
     url("map_day_new", map_day_new),
+    url("rili_world_new", rili_world_new),
+    url("rili_country_new", rili_country_new),
+
 ]

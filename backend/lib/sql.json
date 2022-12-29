@@ -111,11 +111,18 @@
       "new_cases"
     ]
   },
-  "总新增确诊和死亡": {
-    "sql": "",
+
+  "日历世界新增确诊": {
+    "sql": "select date,sum(new_cases) as new_cases from xg.source \nwhere iso_code not like '%\\_%' and date between '{time_interval_start}-01-01' and '{time_interval_end}-12-31'\ngroup by date order by date;",
     "fields": [
-      "location",
-      "new_deaths",
+      "date",
+      "new_cases"
+    ]
+  },
+  "日历国家新增确诊": {
+    "sql": "select date,sum(new_cases) as new_cases from xg.source \nwhere iso_code not like '%\\_%' and location='{country_flag}' and date between '{time_interval_start}-01-01' and '{time_interval_end}-12-31'\ngroup by date order by date;",
+    "fields": [
+      "date",
       "new_cases"
     ]
   }
