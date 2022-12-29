@@ -86,7 +86,7 @@ export async function Nav6_SubNav2_Data(searchYear,searchCountry) {
   var option = {
   title: {
     left: 'center',
-    text: `${searchYear} 年世界新增确诊人数日历图`
+    text: `${searchYear} 年 ${searchCountry} 新增确诊人数日历图`
   },
   tooltip: {},
   visualMap: {
